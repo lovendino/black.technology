@@ -512,35 +512,35 @@
                 return false;
             });
 
-            $('.flat-portfolio .load-more a').on('click', function(e) {
-                e.preventDefault();
-                return false;
-                var el = $(this),
-                    url = el.attr('href'),
-                    page = parseInt(el.attr('data-page'), 10);
+            // $('.flat-portfolio .load-more a').on('click', function(e) {
+            //     e.preventDefault();
+            //     return false;
+            //     var el = $(this),
+            //         url = el.attr('href'),
+            //         page = parseInt(el.attr('data-page'), 10);
 
-                el.addClass('loading').text('Loading...');
+            //     el.addClass('loading').text('Loading...');
 
-                $.ajax({
-                    type: "GET",
-                    url: url,
-                    dataType: "html",
-                    async: false,   // wait result
-                    data : { page : page }
-                })
-                .done(function (data) {
-                    if ( data != null ) {                      
-                        var newitem = $(data);
-                        $container.append(newitem).isotope('appended', newitem);
-                        el.removeClass('loading').text('Load more');
-                        page = page + 1;
-                        el.attr({'data-page': page, 'href': './ajax/p' + page + '.html'});
-                    }
-                })
-                .fail(function () {
-                    el.text('No more portfolio to load.');
-                })
-            });
+            //     $.ajax({
+            //         type: "GET",
+            //         url: url,
+            //         dataType: "html",
+            //         async: false,   // wait result
+            //         data : { page : page }
+            //     })
+            //     .done(function (data) {
+            //         if ( data != null ) {                      
+            //             var newitem = $(data);
+            //             $container.append(newitem).isotope('appended', newitem);
+            //             el.removeClass('loading').text('Load more');
+            //             page = page + 1;
+            //             el.attr({'data-page': page, 'href': './ajax/p' + page + '.html'});
+            //         }
+            //     })
+            //     .fail(function () {
+            //         el.text('No more portfolio to load.');
+            //     })
+            // });
         };
     };    
 
